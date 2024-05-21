@@ -374,4 +374,20 @@ const bills = [
 ];
 
 // Start coding here
-const totalMembers;
+const newBills = bills.filter((listMember) => {
+  return listMember.member !== null;
+});
+
+function nameOnly(memberName) {
+  return memberName["member"]["name"];
+}
+const billMembers = newBills.map(nameOnly);
+//console.log(billMembers);
+
+const totalMembers = billMembers.reduce((acc, cur) => {
+  if (!acc.includes(cur)) {
+    acc.push(cur);
+  }
+  return acc;
+}, []);
+console.log("Unique Members Count: " + totalMembers.length);
