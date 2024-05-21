@@ -374,4 +374,102 @@ const bills = [
 ];
 
 // Start coding here
-const totalMembers;
+const totalMembers = function (bills) {
+  // Step 1: Filter bills to only include those with members
+  const membersWithNames = bills
+    .filter((bill) => bill.member !== null)
+    .map((bill) => bill.member.name);
+
+  // Step 2: Use reduce to create an array of unique names
+  const uniqueMemberNames = membersWithNames.reduce((acc, name) => {
+    if (acc.indexOf(name) === -1) {
+      acc.push(name);
+    }
+    return acc;
+  }, []);
+
+  console.log(`Unique Members Count: ${uniqueMemberNames.length}`);
+};
+
+totalMembers(bills);
+
+// set
+// const totalMembers = function (bills) {
+//   // Step 1: Filter bills to only include those with members
+//   const membersWithNames = bills
+//     .filter((bill) => bill.member !== null)
+//     .map((bill) => bill.member.name);
+
+//   // Step 2: Use a Set to remove duplicate names
+//   const uniqueMemberNames = [...new Set(membersWithNames)];
+
+//   console.log(uniqueMemberNames);
+// };
+
+// totalMembers(bills);
+
+// let membersNameArr = [
+//   "Mark",
+//   "Mark",
+//   "Peter",
+//   "Bee",
+//   "Mark",
+//   "Jack",
+//   "Patrick",
+//   "John",
+//   "John",
+//   "Bee",
+//   "Jack",
+//   "T",
+//   "Pop",
+//   "Lisa",
+//   "Alex",
+//   "Bank",
+//   "Mark",
+//   "P",
+//   "Mark",
+//   "Bee",
+//   "Mark",
+// ];
+// function onlyUnique(v, i, a) {
+//   return a.indexOf(v) === i;
+// }
+
+// console.log(onlyUnique("Mark", 0, membersNameArr)); // true
+// console.log(onlyUnique("Mark", 1, membersNameArr)); // false
+// console.log(onlyUnique("Mark", 2, membersNameArr)); // false
+// OVERVIEW ANALYSIS
+// console.log("[Mark, Meow, Mark]");
+
+// console.log(membersNameArr.indexOf("Mark")); // 0
+// console.log(membersNameArr.indexOf("Meow")); // 1
+// console.log(membersNameArr.indexOf("Mark")); // 2
+
+// console.log("if Arr.indexOf('Mark')"); // 0; Mark always 0
+// console.log("=== pos 0"); // true
+// console.log("then push Mark"); // ['Mark']
+
+// console.log("if Arr.indexOf('Meow')"); // 1
+// console.log("=== pos 1"); // true
+// console.log("then push Meow"); // ['Mark', 'Meow']
+
+// console.log("if Arr.indexOf('Mark')"); // 0; Mark always 0
+// console.log("=== pos 2"); // false
+// console.log("then NO ACTION"); // ["Mark", "Meow"] not push element into arr
+// END OF OVERVIEW ANALYSIS
+
+// ANALYSIS: method indexOf & create function prototype
+// console.log(membersNameArr); // [ 'Mark', 'Meow', 'Mark', 'Mark' ]
+// console.log(membersNameArr.indexOf("Mark")); // 0 เสมอ; indexOf เจอตัวแรก ก็คืนค่าเลย
+// ANALYSIS: method indexOf & create function prototype
+// console.log(membersNameArr); // [ 'Mark', 'Meow', 'Mark', 'Mark' ]
+// console.log(membersNameArr.indexOf("Mark")); // 0 เสมอ; indexOf เจอตัวแรก ก็คืนค่าเลย
+
+// function onlyUnique(v, i, a) {
+//   return a.indexOf(v) === i;
+// }
+
+// console.log(onlyUnique("Mark", 0, membersNameArr)); // true
+// console.log(onlyUnique("Mark", 1, membersNameArr)); // false
+// console.log(onlyUnique("Mark", 2, membersNameArr)); // false
+// END OF ANALYSIS
