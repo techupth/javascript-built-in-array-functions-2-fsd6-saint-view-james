@@ -1,9 +1,10 @@
 function isPalindrome(string) {
   // Start coding here
-  // ทำการสร้าง string ใหม่ที่เป็น reverse ของ string เดิม
   const reversedString = string.split("").reverse().join("");
+  //console.log(string.split(""))
+  //console.log(string.split("").reverse())
+  //console.log(string.split("").reverse().join(""))
 
-  // เปรียบเทียบ string เดิมกับ reversedString
   return string === reversedString;
 }
 
